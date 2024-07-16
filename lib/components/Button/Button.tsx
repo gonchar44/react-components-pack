@@ -6,6 +6,7 @@ export interface ButtonProps {
   /**
    * Button style
    */
+  $isFullWidth?: boolean
   $variant?: 'primary' | 'secondary' | 'transparent'
   /**
    * Button size
@@ -22,7 +23,7 @@ export interface ButtonProps {
   /**
    * Click handler
    */
-  onClick: (e: MouseEvent<HTMLElement>) => void
+  onClick?: (e: MouseEvent<HTMLElement>) => void
   /**
    * Button contents
    */
@@ -30,6 +31,7 @@ export interface ButtonProps {
 }
 
 export const Button: FC<ButtonProps> = ({
+  $isFullWidth = false,
   $variant = 'primary',
   $size = 'medium',
   type = 'button',
@@ -40,6 +42,7 @@ export const Button: FC<ButtonProps> = ({
 
   return (
     <SButton
+      $isFullWidth={$isFullWidth}
       $variant={$variant}
       $size={$size}
       $theme={theme}

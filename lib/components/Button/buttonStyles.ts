@@ -7,7 +7,8 @@ interface SButtonProps extends ButtonProps {
 }
 
 export const SButton = styled.button<SButtonProps>`
-  ${({ $variant, $size, $theme: { colors } }) => css`
+  ${({ $variant, $size, $theme: { colors }, $isFullWidth }) => css`
+    min-width: 100px;
     background-color: transparent;
     border: 2px solid transparent;
     border-radius: 20px;
@@ -51,6 +52,9 @@ export const SButton = styled.button<SButtonProps>`
       border-radius: 30px;
       font-size: 18px;
       padding: 13px 25px;
+    `};
+    ${$isFullWidth && css`
+      width: 100%;
     `};
   `};
 `

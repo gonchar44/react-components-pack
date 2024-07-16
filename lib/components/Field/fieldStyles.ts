@@ -26,11 +26,16 @@ export const SInput = styled.input<{
 }>`
   ${({ $isSearch, $isError, $theme: { colors } }) => css`
     width: 100%;
+    background-color: transparent;
     border: 2px solid ${colors.primary.dark};
     border-radius: 20px;
     color: ${colors.primary.dark};
     padding: 10px 15px;
     outline: none;
+
+    &::placeholder {
+      color: ${colors.secondary.dark};
+    }
 
     ${$isSearch &&
     css`
