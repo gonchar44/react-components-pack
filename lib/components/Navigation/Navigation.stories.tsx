@@ -7,7 +7,9 @@ const meta = {
   decorators: [
     (Story) => (
       <MemoryRouter initialEntries={['/']}>
-        <Story />
+        <header style={{ display: 'flex', justifyContent: 'center' }}>
+          <Story />
+        </header>
       </MemoryRouter>
     )
   ],
