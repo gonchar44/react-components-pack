@@ -10,10 +10,6 @@ export const SNavigation = styled.nav<{ $theme: ThemeProps }>`
     display: flex;
     column-gap: 5px;
     padding: 5px;
-    position: sticky;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
   `};
 `
 
