@@ -4,9 +4,12 @@ import { SButton } from './buttonStyles.ts'
 
 export interface ButtonProps {
   /**
-   * Button style
+   * Takes the full parent element width
    */
   $isFullWidth?: boolean
+  /**
+   * Button style
+   */
   $variant?: 'primary' | 'secondary' | 'transparent'
   /**
    * Button size
