@@ -31,6 +31,14 @@ export interface FieldProps {
    */
   placeholder?: string
   /**
+   * Field type
+   */
+  type?:  'text' | 'password'
+  /**
+   * Mark field borders as error
+   */
+  $isError?: boolean
+  /**
    * Shows validation error message
    */
   $errorMessage?: string
@@ -46,6 +54,8 @@ export const Field: FC<FieldProps> = ({
   $label,
   name,
   value,
+  type = 'text',
+  $isError = false,
   $errorMessage,
   ...rest
 }) => {
@@ -54,7 +64,7 @@ export const Field: FC<FieldProps> = ({
   return (
     <SWrapper $isWrapperGap={!!$label?.length || !!$errorMessage?.length}>
       {!!$label && (
-        <Label text={$label} name={name} isError={!!$errorMessage} />
+        <Label text={$label} name={name} isError={!!$errorMessage || $isError} />
       )}
 
       <SInputWrapper>
@@ -74,11 +84,11 @@ export const Field: FC<FieldProps> = ({
           {...rest}
           id={name}
           name={name}
-          type="text"
+          type={type}
           value={value}
           maxLength={$max}
           $isSearch={$isSearch}
-          $isError={!!$errorMessage}
+          $isError={!!$errorMessage || $isError}
           $theme={theme}
         />
       </SInputWrapper>
