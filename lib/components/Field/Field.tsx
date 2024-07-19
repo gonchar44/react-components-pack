@@ -103,7 +103,10 @@ export const Field: FC<FieldProps> = ({
         />
 
         {type === 'password' && (
-          <PasswordButton onClick={e => togglePasswordView(e)}>
+          <PasswordButton
+            type="button"
+            onClick={e => togglePasswordView(e)}
+          >
             <img src={isHiddenPassword ? EyeIcon : HiddenEyeIcon} alt="eye" />
           </PasswordButton>
         )}
