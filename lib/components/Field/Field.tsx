@@ -1,9 +1,14 @@
-import { FC, FocusEvent, useState } from 'react'
-import { SvgIcon } from '../SvgIcon'
+import { MouseEvent, FC, FocusEvent, useState } from 'react'
 import SearchIcon from '@assets/icons/search.svg'
 import EyeIcon from '@assets/icons/eye.svg'
 import HiddenEyeIcon from '@assets/icons/hidden-eye.svg'
-import { SInput, SInputWrapper, SWrapper, PasswordButton } from './fieldStyles.ts'
+import {
+  SInput,
+  SInputWrapper,
+  SWrapper,
+  SearchIconImg,
+  PasswordButton
+} from './fieldStyles.ts'
 import { ErrorMessage, Label } from '@common'
 import { useTheme } from '@contexts'
 
@@ -69,7 +74,8 @@ export const Field: FC<FieldProps> = ({
   const [isHiddenPassword, setIsHiddenPassword] = useState(true)
   const fieldType = !isHiddenPassword ? 'text' : type
 
-  const togglePasswordView = () => {
+  const togglePasswordView = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
     setIsHiddenPassword(prevState => !prevState)
   }
 
@@ -81,15 +87,7 @@ export const Field: FC<FieldProps> = ({
 
       <SInputWrapper>
         {$isSearch && (
-          <SvgIcon
-            $icon={SearchIcon}
-            $css={{
-              position: 'absolute',
-              top: '50%',
-              left: '15px',
-              transform: 'translateY(-50%)'
-            }}
-          />
+          <SearchIconImg src={SearchIcon} alt="search" />
         )}
 
         <SInput
@@ -105,8 +103,8 @@ export const Field: FC<FieldProps> = ({
         />
 
         {type === 'password' && (
-          <PasswordButton onClick={togglePasswordView}>
-            <SvgIcon $icon={isHiddenPassword ? EyeIcon : HiddenEyeIcon} />
+          <PasswordButton onClick={e => togglePasswordView(e)}>
+            <img src={isHiddenPassword ? EyeIcon : HiddenEyeIcon} alt="eye" />
           </PasswordButton>
         )}
       </SInputWrapper>

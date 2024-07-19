@@ -53,13 +53,20 @@ export const SInput = styled.input<{
   `};
 `
 
+export const SearchIconImg = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+`
+
 export const PasswordButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
   position: absolute;
-  top: 49%;
-  right: 6px;
+  top: 50%;
+  right: 10px;
   transform: translateY(-50%);
   outline: none;
 `
