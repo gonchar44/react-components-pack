@@ -6,7 +6,7 @@ export interface SvgIconProps {
   /**
    * Icon source
    */
-  $icon: FC<SVGProps<SVGElement>>
+  $icon: FC<SVGProps<SVGElement>> | string
   /**
    * Represents icon color, has higher priority than CSS "background" property
    */
