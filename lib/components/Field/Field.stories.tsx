@@ -42,7 +42,8 @@ export const Default: Story = {
   args: {
     value: '',
     name: 'firstName',
-    placeholder: 'Enter your first name'
+    placeholder: 'Enter your first name',
+    type: 'text'
   }
 }
 
@@ -51,7 +52,8 @@ export const Label: Story = {
   args: {
     value: '',
     name: 'firstName',
-    $label: 'First name'
+    $label: 'First name',
+    type: 'text'
   }
 }
 
@@ -61,7 +63,8 @@ export const Error: Story = {
     $label: 'First name',
     value: '',
     name: 'firstName',
-    $errorMessage: 'Minimum length of value is 3'
+    $errorMessage: 'Minimum length of value is 3',
+    type: 'text'
   }
 }
 
@@ -71,6 +74,18 @@ export const Search: Story = {
     $isSearch: true,
     value: '',
     name: 'search',
-    placeholder: 'Search'
+    placeholder: 'Search',
+    type: 'text'
+  }
+}
+
+export const Password: Story = {
+  render: (args: FieldProps) => <Template {...args} />,
+  args: {
+    $label: 'Password',
+    value: '',
+    name: 'password',
+    placeholder: 'Enter your password',
+    type: 'password'
   }
 }

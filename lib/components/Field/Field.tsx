@@ -1,7 +1,9 @@
-import { FC, FocusEvent } from 'react'
+import { FC, FocusEvent, useState } from 'react'
 import { SvgIcon } from '../SvgIcon'
 import SearchIcon from '@assets/icons/search.svg'
-import { SInput, SInputWrapper, SWrapper } from './fieldStyles.ts'
+import EyeIcon from '@assets/icons/eye.svg'
+import HiddenEyeIcon from '@assets/icons/hidden-eye.svg'
+import { SInput, SInputWrapper, SWrapper, PasswordButton } from './fieldStyles.ts'
 import { ErrorMessage, Label } from '@common'
 import { useTheme } from '@contexts'
 
@@ -43,6 +45,10 @@ export interface FieldProps {
    */
   $errorMessage?: string
   /**
+   * Makes a field non-interactive and visually distinct
+   */
+  disabled?: boolean
+  /**
    * Input handler
    */
   onChange: (value: FocusEvent<HTMLInputElement>) => void
@@ -60,6 +66,12 @@ export const Field: FC<FieldProps> = ({
   ...rest
 }) => {
   const theme = useTheme()
+  const [isHiddenPassword, setIsHiddenPassword] = useState(true)
+  const fieldType = !isHiddenPassword ? 'text' : type
+
+  const togglePasswordView = () => {
+    setIsHiddenPassword(prevState => !prevState)
+  }
 
   return (
     <SWrapper $isWrapperGap={!!$label?.length || !!$errorMessage?.length}>
@@ -84,13 +96,19 @@ export const Field: FC<FieldProps> = ({
           {...rest}
           id={name}
           name={name}
-          type={type}
+          type={fieldType}
           value={value}
           maxLength={$max}
           $isSearch={$isSearch}
           $isError={!!$errorMessage || $isError}
           $theme={theme}
         />
+
+        {type === 'password' && (
+          <PasswordButton onClick={togglePasswordView}>
+            <SvgIcon $icon={isHiddenPassword ? EyeIcon : HiddenEyeIcon} />
+          </PasswordButton>
+        )}
       </SInputWrapper>
 
       {!!$errorMessage && <ErrorMessage errorMessage={$errorMessage} />}

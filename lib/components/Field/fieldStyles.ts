@@ -52,3 +52,14 @@ export const SInput = styled.input<{
     `};
   `};
 `
+
+export const PasswordButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 49%;
+  right: 6px;
+  transform: translateY(-50%);
+  outline: none;
+`
