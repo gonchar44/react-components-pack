@@ -43,3 +43,31 @@ export const SLink = styled(NavLink)<{ $theme: ThemeProps }>`
     }
   `};
 `
+
+export const SNotificationAmount = styled.span<{ $theme: ThemeProps }>`
+  ${({ $theme: { colors } }) => css`
+    min-width: 22px;
+    height: 22px;
+    background-color: ${colors.secondary.error};
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 0 5px;
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    text-align: center;
+    line-height: 22px;
+  `};
+`
+
+export const SNotification = styled.div<{ $theme: ThemeProps }>`
+  ${({ $theme: { colors } }) => css`
+    width: 8px;
+    height: 8px;
+    background-color: ${colors.secondary.error};
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+  `};
+`
