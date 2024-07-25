@@ -2,7 +2,7 @@
   "name": "@gonchar44/react-components-pack",
   "private": false,
   "license": "MIT",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
